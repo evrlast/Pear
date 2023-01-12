@@ -6,6 +6,10 @@ extern Pear::Application* Pear::CreateApplication();
 
 int main(int argc, char** argv)
 {
+	Pear::Log::Init();
+	PR_CORE_WARN("Initialized Log!");
+	PR_INFO("Hello!");
+
 	auto app = Pear::CreateApplication();
 
 	app->Run();
