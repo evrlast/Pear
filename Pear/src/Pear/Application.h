@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Core.h"
+#include "prpch.h"
+#include "Events/Event.h"
 
 namespace Pear {
 
@@ -9,6 +11,7 @@ namespace Pear {
 	public:
 		Application();
 		virtual ~Application();
+
 		
 		void Run();
 	};

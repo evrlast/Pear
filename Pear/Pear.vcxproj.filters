@@ -4,6 +4,9 @@
     <Filter Include="Pear">
       <UniqueIdentifier>{6DA88A7C-59DF-8B0D-02CC-7110EEE1070F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pear\Events">
+      <UniqueIdentifier>{B1F77A54-1DAD-F349-A6A1-ED201256EA4D}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pear.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Pear\EntryPoint.h">
       <Filter>Pear</Filter>
     </ClInclude>
+    <ClInclude Include="src\Pear\Events\ApplicationEvent.h">
+      <Filter>Pear\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pear\Events\Event.h">
+      <Filter>Pear\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pear\Events\KeyEvent.h">
+      <Filter>Pear\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pear\Events\MouseEvent.h">
+      <Filter>Pear\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Pear\Log.h">
       <Filter>Pear</Filter>
     </ClInclude>
+    <ClInclude Include="src\prpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pear\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Pear\Log.cpp">
       <Filter>Pear</Filter>
     </ClCompile>
+    <ClCompile Include="src\prpch.cpp" />
   </ItemGroup>
 </Project>

@@ -20,6 +20,9 @@ project "Pear"
 	targetdir ("bin/" ..outputDir.. "/%{prj.name}")
 	objdir ("bin-int/" ..outputDir.. "/%{prj.name}")
 
+	pchheader "prpch.h"
+	pchsource "Pear/src/prpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -28,6 +31,7 @@ project "Pear"
 
 	includedirs 
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 
