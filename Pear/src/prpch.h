@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Pear/Log.h"
+
 #ifdef PR_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

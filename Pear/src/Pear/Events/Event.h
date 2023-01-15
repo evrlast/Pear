@@ -1,5 +1,6 @@
 #pragma once
 
+#include "prpch.h"
 #include "Pear/Core.h"
 
 namespace Pear {

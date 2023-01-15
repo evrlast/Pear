@@ -9,7 +9,12 @@ workspace "Pear"
 		"Dist"
 	}
 
-outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+IncludeDir = {}
+IncludeDir["GLFW"] = "Pear/vendor/GLFW/include"
+
+include "Pear/vendor/GLFW"
 
 project "Pear"
 
@@ -17,8 +22,8 @@ project "Pear"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir ("bin/" ..outputDir.. "/%{prj.name}")
-	objdir ("bin-int/" ..outputDir.. "/%{prj.name}")
+	targetdir ("bin/" ..outputdir.. "/%{prj.name}")
+	objdir ("bin-int/" ..outputdir.. "/%{prj.name}")
 
 	pchheader "prpch.h"
 	pchsource "Pear/src/prpch.cpp"
@@ -32,7 +37,14 @@ project "Pear"
 	includedirs 
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -48,7 +60,7 @@ project "Pear"
 
 		postbuildcommands 
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputDir.. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir.. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -70,8 +82,8 @@ project "Sandbox"
 
 	language "C++"
 
-	targetdir ("bin/" ..outputDir.. "/%{prj.name}")
-	objdir ("bin-int/" ..outputDir.. "/%{prj.name}")
+	targetdir ("bin/" ..outputdir.. "/%{prj.name}")
+	objdir ("bin-int/" ..outputdir.. "/%{prj.name}")
 
 		files
 	{
