@@ -37,6 +37,12 @@
     <ClInclude Include="src\Pear\Events\MouseEvent.h">
       <Filter>Pear\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Pear\Layer.h">
+      <Filter>Pear</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Pear\LayerStack.h">
+      <Filter>Pear</Filter>
+    </ClInclude>
     <ClInclude Include="src\Pear\Log.h">
       <Filter>Pear</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pear\Application.cpp">
+      <Filter>Pear</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Pear\Layer.cpp">
+      <Filter>Pear</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Pear\LayerStack.cpp">
       <Filter>Pear</Filter>
     </ClCompile>
     <ClCompile Include="src\Pear\Log.cpp">

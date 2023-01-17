@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Pear/vendor/GLFW/include"
+IncludeDir["Glad"] = "Pear/vendor/Glad/include"
 
 include "Pear/vendor/GLFW"
+include "Pear/vendor/Glad"
 
 project "Pear"
 
@@ -38,12 +40,14 @@ project "Pear"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -55,7 +59,8 @@ project "Pear"
 		defines
 		{
 			"PR_PLATFORM_WINDOWS",
-			"PR_BUILD_DLL"
+			"PR_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands 
@@ -65,14 +70,17 @@ project "Pear"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 		
 	filter "configurations:Release"
 		defines "PR_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 
@@ -114,12 +122,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 		
 	filter "configurations:Release"
 		defines "PR_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
+		buildoptions "/MD"
 		optimize "On"
